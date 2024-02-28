@@ -123,13 +123,14 @@ const CreateSong = async (new_song) => {
     if (new_song_name === "") {
         new_song_name = "No-name Tune";
     }
+    if (new_song.length !== 0) {
     await axios.post('http://localhost:3000/api/v1/tunes', {
         name: new_song_name,
         tune: new_song
-    });
-
-
+    })
+    console.log("Tune added")
     getAllTunes();
+    };
 }
 
 document.addEventListener("keypress", async(event) => {
